@@ -1,0 +1,85 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ * {
+   margin: 0;
+   padding: 0;
+ }
+
+a, a:hover {
+  text-decoration: none;
+}
+
+ /* header */
+ header{
+   height: 100px;
+   width: 100%;
+   padding: 15px 0;
+   margin-bottom: 50px;
+   background-color: #C0C0C0;
+   color: black;
+ }
+
+
+header .headline {
+  line-height: 100px;
+  float: left;
+  margin-left: 100px;
+  color: black;
+  font-size: 30px;
+}
+
+.navlist {
+  /* display: flex; */
+  /* float: right; */
+  line-height: 100px;
+  float: left;
+  margin-left: 30px;
+  list-style: none;
+}
+
+.navitem {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+
+  padding: 0.3em 1em;
+  background-color: #66CCFF;
+  color: white;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.navitem:hover {
+  background: #67c5ff;
+  color: white;
+}
+  
+/* .navigation li {
+   margin-right: 15px;
+   font-size: 15px;
+ } */
+
+ .field {
+   margin-top: 20px;
+   font-weight: bold;
+ }
+
+ /* main */
+ /* .main-content {
+   margin: 0 auto;
+ } */

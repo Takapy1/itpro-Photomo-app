@@ -1,0 +1,17 @@
+<header class="app-header">
+  <h1 class="headline">
+    <%= link_to "Photomo", root_path %>
+  </h1>
+
+  <ul class="navlist">
+    <li class="navitem"><%= link_to "新規投稿", new_photo_path %></li>
+    <li class="navitem"><%= link_to "投稿リスト", photos_path %></li>
+      <% if logged_in? %>
+        <%= link_to "ログアウト", logout_path, method: :delete %>
+        <%= current_photographer.name %>
+      <% else %>
+        <li class="navitem"><%= link_to "新規登録", new_photographer_path %></li>
+        <li class="navitem"><%= link_to "ログイン", login_path %></li>
+      <% end %>
+  </ul>
+</header>

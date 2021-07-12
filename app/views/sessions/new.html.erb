@@ -1,0 +1,25 @@
+<h1>Please login.</h1>
+
+<%= form_with(url: login_path, local: true) do |form| %>
+  
+    <div class="field">
+      <h3><%= form.label :name %></h3>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <h3><%= form.label :password %></h3>
+      <%= form.password_field :password %>
+    </div>
+
+    <div class="field">
+        <input type="radio" id="photographer" name="user" value=0>
+        <label for="photographer">Photographer</label>
+        <input type="radio" id="viewer" name="user" value=1>
+        <label for="viewer">Viewer</label>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit value = "Login"%>
+    </div>
+  <% end %>

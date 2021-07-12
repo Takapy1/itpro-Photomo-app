@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @viewer.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @viewer.age %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @viewer.gender %>
+</p>
+
+<%= link_to 'Edit', edit_viewer_path(@viewer) %> |
+<%= link_to 'Back', viewers_path %>
