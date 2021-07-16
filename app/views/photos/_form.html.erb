@@ -1,7 +1,7 @@
-<%= form_with(model: photo, local: true) do |form| %>
+<%= form_with(model: photo, local: true, class: "form-area") do |form| %>
   <% if photo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+      <h2><%= pluralize(photo.errors.count, "つのエラーがあります。") %></h2>
 
       <ul>
         <% photo.errors.full_messages.each do |message| %>
@@ -12,34 +12,34 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :date %>
+    <%= form.label :date, "日付" %>
     <%= form.date_select :date, start_year: 1950, end_year: Time.now.year %>
   </div>
 
   <div class="field">
-    <%= form.label :location %>
+    <%= form.label :location, "場所" %>
     <%= form.text_field :location %>
   </div>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :title,"タイトル" %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :image %>
+    <%= form.label :image, "画像" %>
     <button type="button">
       <%= form.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
     </button>
     <%#= form.text_field :image %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
+  <div class="field" size="300x200">
+    <%= form.label :description, "説明" %>
     <%= form.text_area :description, size: "40x10" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "新規投稿", class: "btn-create" %>
   </div>
 <% end %>

@@ -1,5 +1,7 @@
 <h1>New Viewer</h1>
 
-<%= render 'form', viewer: @viewer %>
+<div class="form-area">
+  <%= render 'form', viewer: @viewer %>
 
-<%= link_to 'Back', viewers_path %>
+  <%= link_to 'Back', viewers_path, class: "btn" %>
+</div>

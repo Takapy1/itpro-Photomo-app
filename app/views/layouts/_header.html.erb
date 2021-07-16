@@ -1,17 +1,23 @@
-<header class="app-header">
-  <h1 class="headline">
-    <%= link_to "Photomo", root_path %>
-  </h1>
 
-  <ul class="navlist">
-    <li class="navitem"><%= link_to "新規投稿", new_photo_path %></li>
-    <li class="navitem"><%= link_to "投稿リスト", photos_path %></li>
+
+<div class="header">
+  <div class="header__inner">
+    <%= link_to "Photomo", root_path, style:"font-size: 40px; color: white;" %>
+    <div class="header__navgroup">
+      <div class="header__navitem"><%= link_to "投稿リスト", photos_path, class: "header-button" %></div>
       <% if logged_in? %>
-        <%= link_to "ログアウト", logout_path, method: :delete %>
-        <%= current_photographer.name %>
+        <% if session[:status] == "photographer" %>
+          <div class="header__navitem"><%= link_to "新規投稿", new_photo_path, class: "header-button" %></div>
+        <% end %>
+        <div class="header__navitem"><%= link_to "ログアウト", logout_path, method: :delete, class: "header-button" %></div>
       <% else %>
-        <li class="navitem"><%= link_to "新規登録", new_photographer_path %></li>
-        <li class="navitem"><%= link_to "ログイン", login_path %></li>
+        <div class="header__navitem"><%= link_to "新規登録", new_photographer_path, class: "header-button" %></div>
+
+        
+
+        <div class="header__navitem"><%= link_to "ログイン", login_path, class: "header-button" %></div>
       <% end %>
-  </ul>
-</header>
+    </div>
+  </div>
+</div>
+

@@ -1,7 +1,7 @@
 <%= form_with(model: viewer, local: true) do |form| %>
   <% if viewer.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(viewer.errors.count, "error") %> prohibited this viewer from being saved:</h2>
+      <h2><%= pluralize(viewer.errors.count, "つのエラーがあります。") %> </h2>
 
       <ul>
         <% viewer.errors.full_messages.each do |message| %>
@@ -33,6 +33,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "登録する", class: "btn-create" %>
   </div>
 <% end %>

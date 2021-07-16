@@ -1,0 +1,32 @@
+ja:
+  activerecord:
+    models:
+      photographer: 撮影者
+      viewer: 閲覧者
+      photo: 画像投稿
+      comment: コメント
+
+    attributes:
+      photographer:
+        name: 名前
+        age: 年齢
+        camera: カメラ
+        gender: 性別
+        category: カテゴリー
+        status: ステータス
+
+      viewer:
+        name: 名前
+        age: 年齢
+        gender: 性別
+        status: ステータス
+      
+      photo:
+        image: 画像
+        date: 日付
+        location: 場所
+        title: タイトル
+        description: 説明
+      
+      comment: 
+        content: 内容

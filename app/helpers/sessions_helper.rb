@@ -1,14 +1,15 @@
 module SessionsHelper
 
   #ログインしているphotographer
-  def current_photographer
-    if session[:user_id]
-      @current_photographer ||= Photographer.find_by(id: session[:user_id])
+  def current_user
+    if session[:status] == "photographer"
+      @current_user ||= Photographer.find_by(id: session[:user_id])
+    elsif session[:status] == "viewer"
+      @current_user ||= Viewer.find_by(id: session[:user_id])
     end
   end
 
   def logged_in?
-    !current_photographer.nil? #current_userがnilかどうか
+    !current_user.nil? #current_userがnilかどうか
   end
-
 end

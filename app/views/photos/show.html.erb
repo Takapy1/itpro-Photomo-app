@@ -1,28 +1,76 @@
-<p id="notice"><%= notice %></p>
+<div class="photo-show-detail">
+  <div class="photo-image">
+    <p>
+      <%= image_tag @photo.image.url, class: 'post_image',size: '300x300' %>
+    </p>
+  </div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @photo.date %>
-</p>
+  <div class="photo-detail">
+    <div class="content">
+      <strong>タイトル:</strong>
+      <span class="content-detail"><%= @photo.title %></span>
+    </div>
 
-<p>
-  <strong>Location:</strong>
-  <%= @photo.location %>
-</p>
+    <div class="content">
+      <strong>撮影日:</strong>
+      <span class="content-detail"><%= @photo.date %></span>
+    </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @photo.title %>
-</p>
+    <div class="content">
+      <strong>撮影地:</strong>
+      <span class="content-detail"><%= @photo.location %></span>
+    </div>
 
-<p>
-  <%= image_tag @photo.image.url, class: 'post_image',size: '400x200' %>
-</p>
+    <div class="content">
+      <strong>説明文:</strong>
+      <span class="content-detail"><%= @photo.description %></span>
+    </div>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @photo.description %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+<div class="buttons">
+    <% if(session[:status] == "photographer") %>
+      <%= link_to '編集', edit_photo_path(@photo), class: "btn" %>
+    <% end %>
+    <%= link_to '戻る', photos_path, class: "btn" %>
+</div>
+
+<%# コメント関連 %>
+<div class="form-area">
+  
+  <h2 class="comment-start">コメント一覧</h2>
+  <div class="comments-list">
+    <% @comments.each do |comment| %>
+      <div class="comment-area">
+        <div class="comment-user-info">
+          <%= comment.viewer.name %>
+        </div>
+        <div class="comment-body">
+          <%= comment.content %>
+        </div>
+        <div class="destroy-btn">
+          <% if comment.viewer.id == current_user.id %>
+              <%= link_to "削除", photo_comment_path(@photo, comment), class: "btn-delete", method: :delete %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+  <h3 class="comment-start">コメントする</h3>
+  <div class="comment-form">
+    <%= form_with model: @comment, url: photo_comments_path(@photo), method: :post do |f| %>
+      <div class="form-group">
+        <label for="comment"></label>
+        <%= f.text_area :content, size: "20x5", autofocus: true, style: "height: 100px; width: 300px;" %>
+      </div>
+      <div class="actions">
+        <%= f.submit '送信', class: "btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

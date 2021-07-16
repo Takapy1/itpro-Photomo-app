@@ -7,4 +7,5 @@ class Photographer < ApplicationRecord
     validates :camera, presence: true
     validates :gender, presence: true
     validates :category, presence: true
+
 end

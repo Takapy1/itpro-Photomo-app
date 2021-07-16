@@ -1,3 +1,57 @@
 // Place all the styles related to the Photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+//photo関連のビューのCSSはここ！
+
+thead {
+  background-color: #D3D3D3;
+}
+
+h1 {
+  margin-left: 150px;
+}
+
+td {
+  margin: 0 auto;
+}
+.description-field {
+  width: 40%;
+  height: 200px;
+}
+
+a.btn, a.btn-delete {
+  vertical-align: middle;
+}
+
+.photo-show-detail {
+  display: flex;
+  margin-left: 110px;
+}
+
+.content {
+  margin: 20px 0;
+  background-color: #F5F5F5;
+}
+
+.content-detail {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+strong {
+  font-size: 30px;
+}
+
+
+.photos-table {
+  margin: 20px auto;
+  width: 80%;
+  
+}
+
+.photo-content {
+  background-color: #F5F5F5;
+  text-align: center;
+}

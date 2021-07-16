@@ -1,5 +1,7 @@
 class Photo < ApplicationRecord
     belongs_to :photographer, dependent: :destroy
+    has_many :comments, dependent: :destroy
+    
     mount_uploader :image, ImageUploader
 
     validates :image, presence: true

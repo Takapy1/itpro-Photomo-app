@@ -23,10 +23,13 @@ class PhotographersController < ApplicationController
   # POST /photographers or /photographers.json
   def create
     @photographer = Photographer.new(photographer_params)
+    @photographer.status = "photographer"
 
     respond_to do |format|
       if @photographer.save
         session[:user_id] = @photographer.id
+        session[:status] = "photographer"
+        
         format.html { redirect_to @photographer, notice: "Photographer was successfully created." }
         format.json { render :show, status: :created, location: @photographer }
       else

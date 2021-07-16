@@ -1,5 +1,6 @@
 class ViewersController < ApplicationController
   before_action :set_viewer, only: %i[ show edit update destroy ]
+  skip_before_action :require_login, only: %i[ new create show ]
 
   # GET /viewers or /viewers.json
   def index
@@ -22,9 +23,12 @@ class ViewersController < ApplicationController
   # POST /viewers or /viewers.json
   def create
     @viewer = Viewer.new(viewer_params)
+    @viewer.status = "viewer"
 
     respond_to do |format|
       if @viewer.save
+        session[:user_id] = @viewer.id
+        session[:status] = "viewer"
         format.html { redirect_to @viewer, notice: "Viewer was successfully created." }
         format.json { render :show, status: :created, location: @viewer }
       else
@@ -64,6 +68,6 @@ class ViewersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def viewer_params
-      params.require(:viewer).permit(:name, :age, :gender)
+      params.require(:viewer).permit(:name, :age, :gender, :password)
     end
 end

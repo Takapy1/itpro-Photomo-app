@@ -1,25 +1,23 @@
-<h1>Please login.</h1>
+<h1>ログイン</h1>
 
-<%= form_with(url: login_path, local: true) do |form| %>
+<%= form_with(url: login_path, local: true, class: "form-area") do |form| %>
   
     <div class="field">
-      <h3><%= form.label :name %></h3>
+      <h3><%= form.label :name, "名前" %></h3>
       <%= form.text_field :name %>
     </div>
 
     <div class="field">
-      <h3><%= form.label :password %></h3>
+      <h3><%= form.label :password, "パスワード" %></h3>
       <%= form.password_field :password %>
     </div>
 
     <div class="field">
-        <input type="radio" id="photographer" name="user" value=0>
-        <label for="photographer">Photographer</label>
-        <input type="radio" id="viewer" name="user" value=1>
-        <label for="viewer">Viewer</label>
+        <input type="radio" name="user" value=0>Photographer
+        <input type="radio" name="user" value=1>Viewer
     </div>
   
     <div class="actions">
-      <%= form.submit value = "Login"%>
+      <%= form.submit value = "ログイン", class: "btn-create" %>
     </div>
   <% end %>

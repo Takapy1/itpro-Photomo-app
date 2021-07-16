@@ -8,7 +8,8 @@ class PhotosController < ApplicationController
 
   # GET /photos/1 or /photos/1.json
   def show
-  
+    @comment = Comment.new
+    @comments = @photo.comments
   end
 
   # GET /photos/new
@@ -23,7 +24,7 @@ class PhotosController < ApplicationController
   # POST /photos or /photos.json
   def create
     @photo = Photo.new(photo_params)
-    @photo.photographer_id = current_photographer.id
+    @photo.photographer_id = current_user.id
 
     respond_to do |format|
       if @photo.save
