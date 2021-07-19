@@ -44,7 +44,8 @@
     <% @comments.each do |comment| %>
       <div class="comment-area">
         <div class="comment-user-info">
-          <%= comment.viewer.name %>
+          <em><big><%= comment.viewer.name %></big></em>
+          <%= '　　　' + comment.updated_at.to_s %>
         </div>
         <div class="comment-body">
           <%= comment.content %>
@@ -54,13 +55,24 @@
               <%= link_to "削除", photo_comment_path(@photo, comment), class: "btn-delete", method: :delete %>
           <% end %>
         </div>
-      </div>
+      </div><br>
     <% end %>
   </div>
 
 
   <h3 class="comment-start">コメントする</h3>
   <div class="comment-form">
+    <% if @comment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@comment.errors.count, "つのエラーがあります。") %> </h2>
+
+        <ul>
+          <% @comment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <%= form_with model: @comment, url: photo_comments_path(@photo), method: :post do |f| %>
       <div class="form-group">
         <label for="comment"></label>

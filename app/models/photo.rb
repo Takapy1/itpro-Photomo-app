@@ -1,5 +1,5 @@
 class Photo < ApplicationRecord
-    belongs_to :photographer, dependent: :destroy
+    belongs_to :photographer
     has_many :comments, dependent: :destroy
     
     mount_uploader :image, ImageUploader

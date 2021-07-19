@@ -11,6 +11,11 @@
 
   <body>
     <%= render 'layouts/header' %>
+    
+    <% if(flash.alert != nil) %>
+      <h3 style = "background-color:red; color:white; text-align:center;" ><%= flash.alert %></h3>
+    <% end %>
+
     <p id="notice"><%= notice %></p>
     <div class="main-content">
       <%= yield %>

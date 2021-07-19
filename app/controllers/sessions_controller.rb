@@ -16,9 +16,11 @@ class SessionsController < ApplicationController
           session[:status] = "photographer"
           redirect_to root_url
         else
+          flash[:alert] = "ログイン名かパスワードが一致しません"
           redirect_to login_url
         end
       else
+        flash[:alert] = "ログイン名かパスワードが一致しません"
         redirect_to login_url
       end
     elsif(user_type == 1)
@@ -30,9 +32,11 @@ class SessionsController < ApplicationController
           
           redirect_to root_url
         else
+          flash[:alert] = "ログイン名かパスワードが一致しません"
           redirect_to login_url
         end
       else
+        flash[:alert] = "ログイン名かパスワードが一致しません"
         redirect_to login_url
       end
     end

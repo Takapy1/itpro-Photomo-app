@@ -1,19 +1,17 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Name:</strong>
+  <strong>名前:</strong>
   <%= @viewer.name %>
-</p>
+</p><br>
 
 <p>
-  <strong>Age:</strong>
+  <strong>年齢:</strong>
   <%= @viewer.age %>
-</p>
+</p><br>
 
 <p>
-  <strong>Gender:</strong>
+  <strong>性別:</strong>
   <%= @viewer.gender %>
-</p>
+</p><br>
 
-<%= link_to 'Edit', edit_viewer_path(@viewer) %> |
-<%= link_to 'Back', viewers_path %>
+<%= link_to '更新', edit_viewer_path(@viewer) %> |
+<%= link_to '戻る', viewers_path %>

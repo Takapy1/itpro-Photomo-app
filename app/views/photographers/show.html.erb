@@ -1,29 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="form-area">
+  <p>
+    <strong>名前:</strong>
+    <%= @photographer.name %>
+  </p><br>
 
-<p>
-  <strong>Name:</strong>
-  <%= @photographer.name %>
-</p>
+  <p>
+    <strong>年齢:</strong>
+    <%= @photographer.age %>
+  </p><br>
 
-<p>
-  <strong>Age:</strong>
-  <%= @photographer.age %>
-</p>
+  <p>
+    <strong>カメラ:</strong>
+    <%= @photographer.camera %>
+  </p><br>
 
-<p>
-  <strong>Camera:</strong>
-  <%= @photographer.camera %>
-</p>
+  <p>
+    <strong>性別:</strong>
+    <%= @photographer.gender %>
+  </p><br>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @photographer.gender %>
-</p>
+  <p>
+    <strong>カテゴリー:</strong>
+    <%= @photographer.category %>
+  </p><br>
 
-<p>
-  <strong>Category:</strong>
-  <%= @photographer.category %>
-</p>
-
-<%= link_to 'Edit', edit_photographer_path(@photographer) %> |
-<%= link_to 'Back', photographers_path %>
+  <%= link_to '更新', edit_photographer_path(@photographer), class: "btn" %> |
+  <%= link_to '戻る', photographers_path, class: "btn" %>
+<div>

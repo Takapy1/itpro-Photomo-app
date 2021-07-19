@@ -29,6 +29,7 @@ class CommentsController < ApplicationController
       redirect_to request.referer
     else
       @photo = @comment.photo
+      @comments = @photo.comments
       render "photos/show"
     end
 

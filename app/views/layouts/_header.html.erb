@@ -11,7 +11,10 @@
         <% end %>
         <div class="header__navitem"><%= link_to "ログアウト", logout_path, method: :delete, class: "header-button" %></div>
       <% else %>
-        <div class="header__navitem"><%= link_to "新規登録", new_photographer_path, class: "header-button" %></div>
+        <div class="header__navitem">
+        <%= link_to "新規登録（For Photographers）", new_photographer_path, class: "header-button" %>
+        <%= link_to "新規登録（For Viewers）", new_viewer_path, class: "header-button" %>
+        </div>
 
         
 
